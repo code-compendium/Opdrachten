@@ -1,0 +1,483 @@
+/* ============================================
+   RESET
+   ============================================ */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: system-ui, sans-serif;
+	color: #1a1a2e;
+	-webkit-font-smoothing: antialiased;
+	line-height: 1.6;
+}
+
+img,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+/* ============================================
+   CUSTOM PROPERTIES
+   ============================================ */
+:root {
+	/* Kleuren */
+	--color-primary: #0070f3;
+	--color-primary-dark: #005fd4;
+	--color-text: #1a1a2e;
+	--color-text-muted: #6b7280;
+	--color-background: #f8fafc;
+	--color-surface: #ffffff;
+	--color-border: #e5e7eb;
+
+	/* Typografie - vloeiend schaalbaar */
+	--font-size-h1: clamp(1.75rem, 5vw, 3rem);
+	--font-size-h2: clamp(1.25rem, 3vw, 1.75rem);
+	--font-size-body: clamp(0.95rem, 1.5vw, 1.05rem);
+
+	/* Spacing - schaalt mee met schermgrootte */
+	--space-sm: 0.5rem;
+	--space-md: 1rem;
+	--space-lg: 1.5rem;
+	--space-xl: clamp(1.5rem, 5vw, 3rem);
+	--space-2xl: clamp(2rem, 8vw, 5rem);
+
+	/* Layout */
+	--border-radius: 8px;
+	--max-width: 1100px;
+}
+
+/* ============================================
+   FOCUS STIJL
+   ============================================ */
+:focus-visible {
+	outline: 3px solid var(--color-primary);
+	outline-offset: 2px;
+}
+
+/* ============================================
+   FILTER BUTTONS
+   ============================================ */
+.filter-bar {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-sm);
+	margin-bottom: var(--space-lg);
+}
+
+.filter-btn {
+	padding: 0.4rem 1rem;
+	border: 1px solid var(--color-border);
+	border-radius: 999px;
+	background: transparent;
+	cursor: pointer;
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: var(--color-text-muted);
+	transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+	border-color: var(--color-primary);
+	color: var(--color-primary);
+}
+
+.filter-btn--active {
+	background: var(--color-primary);
+	border-color: var(--color-primary);
+	color: white;
+}
+
+/* ============================================
+   LAADSTATUS
+   ============================================ */
+.laad-status {
+	text-align: center;
+	padding: var(--space-lg);
+	color: var(--color-text-muted);
+	font-size: 0.9rem;
+	min-height: 2rem;
+}
+
+/* ============================================
+   PAGINALAYOUT — CSS GRID
+   Drie rijen: header (auto), main (1fr), footer (auto)
+   ============================================ */
+.page {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	min-height: 100vh;
+}
+
+/* ============================================
+   NAVIGATIE — FLEXBOX
+   Logo links, links in het midden, knop rechts
+   ============================================ */
+.page-header {
+	background-color: var(--color-surface);
+	border-bottom: 1px solid var(--color-border);
+	position: relative;
+	top: 0;
+	z-index: 100;
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: var(--max-width);
+	margin: 0 auto;
+	padding: var(--space-md) var(--space-lg);
+}
+
+.nav-logo {
+	font-weight: 700;
+	font-size: 1.1rem;
+	color: var(--color-text);
+	text-decoration: none;
+	flex-shrink: 0;
+}
+
+/* Mobiel: links verborgen */
+.nav-links {
+	display: none;
+	list-style: none;
+}
+
+/* Hamburger knop: zichtbaar op mobiel */
+.nav-toggle {
+	display: flex;
+	align-items: center;
+	background: none;
+	border: none;
+	font-size: 1.5rem;
+	cursor: pointer;
+	padding: 0.25rem;
+	color: var(--color-text);
+}
+
+/* Open staat van het mobiele menu */
+.nav__links--open {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	background-color: var(--color-surface);
+	border-bottom: 1px solid var(--color-border);
+	padding: var(--space-md) var(--space-lg);
+	gap: var(--space-md);
+}
+
+/* Tablet en groter: links zichtbaar, knop verborgen */
+@media (min-width: 768px) {
+	.nav-links {
+		display: flex;
+		align-items: center;
+		gap: var(--space-lg);
+	}
+
+	.nav-links a {
+		color: var(--color-text-muted);
+		text-decoration: none;
+		font-size: 0.9rem;
+		font-weight: 500;
+		transition: color 0.2s ease;
+	}
+
+	.nav-links a:hover {
+		color: var(--color-text);
+	}
+
+	.nav-toggle {
+		display: none;
+	}
+}
+
+/* ============================================
+   KNOPPEN
+   ============================================ */
+.btn {
+	display: inline-flex; /* inline-flex zodat iconen netjes uitlijnen */
+	align-items: center;
+	gap: var(--space-sm);
+	padding: 0.5rem 1.25rem;
+	background-color: var(--color-primary);
+	color: white;
+	text-decoration: none;
+	border-radius: var(--border-radius);
+	font-size: 0.9rem;
+	font-weight: 600;
+	transition: background-color 0.2s ease;
+	white-space: nowrap;
+}
+
+.btn:hover {
+	background-color: var(--color-primary-dark);
+}
+
+.btn-outline {
+	background-color: transparent;
+	color: var(--color-primary);
+	border: 2px solid var(--color-primary);
+}
+
+.btn-outline:hover {
+	background-color: var(--color-primary);
+	color: white;
+}
+
+.btn-sm {
+	padding: 0.35rem 0.85rem;
+	font-size: 0.8rem;
+}
+
+/* ============================================
+   HERO SECTIE — FLEXBOX voor verticaal centreren
+   ============================================ */
+.page-main {
+	background-color: var(--color-background);
+}
+
+.hero {
+	display: flex;
+	align-items: center;
+	min-height: 100dvh; /* dvh i.p.v. vh voor mobiel */
+	padding: var(--space-2xl) var(--space-lg);
+	background: linear-gradient(135deg, #f0f4ff 0%, #e8f5ff 100%);
+}
+
+.hero-content {
+	max-width: var(--max-width);
+	margin: 0 auto;
+	width: 100%;
+}
+
+.hero-content h1 {
+	font-size: var(--font-size-h1);
+	line-height: 1.2;
+	margin-bottom: var(--space-md);
+}
+
+.hero-content p {
+	font-size: var(--font-size-body);
+	color: var(--color-text-muted);
+	margin-bottom: var(--space-xl);
+	max-width: 55ch; /* Ideale leesbare breedte */
+}
+
+.hero-actions {
+	display: flex;
+	align-items: center;
+	gap: var(--space-md);
+	flex-wrap: wrap;
+}
+
+/* ============================================
+   PROJECTEN SECTIE
+   ============================================ */
+.projects {
+	padding: var(--space-2xl) var(--space-lg);
+	max-width: var(--max-width);
+	margin: 0 auto;
+	width: 100%;
+}
+
+.projects h2 {
+	font-size: var(--font-size-h2);
+	margin-bottom: var(--space-xl);
+}
+
+/* ============================================
+   KAARTENRASTER — CSS GRID met auto-fill
+   Responsief zonder media queries
+   ============================================ */
+/* Mobiel: 1 kolom. Tablet: 2. Desktop: 3. Automatisch via auto-fill */
+.card-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+	gap: var(--space-lg);
+}
+
+/* ============================================
+   KAART — FLEXBOX voor verticale verdeling
+   Inhoud boven, footer altijd onderaan
+   ============================================ */
+.card {
+	display: flex;
+	flex-direction: column; /* Stapel items verticaal */
+	background-color: var(--color-surface);
+	border: 1px solid var(--color-border);
+	border-radius: 12px;
+	overflow: hidden;
+	/* Hover effect op de kaarten */
+	transition:
+		box-shadow 0.2s ease,
+		transform 0.2s ease;
+}
+
+.card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+	cursor: pointer;
+}
+
+.card__image {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2.5rem;
+	height: 120px;
+	background-color: var(--color-background);
+}
+
+.card__body {
+	flex: 1; /* Groeit om beschikbare ruimte te vullen */
+	padding: var(--space-lg);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+}
+
+.card__title {
+	font-size: 1rem;
+	font-weight: 700;
+}
+
+.card__description {
+	font-size: 0.875rem;
+	color: var(--color-text-muted);
+	flex: 1;
+}
+
+.card__tags {
+	display: flex; /* Tags naast elkaar */
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	margin-top: var(--space-sm);
+}
+
+.card__tag {
+	padding: 0.2rem 0.6rem;
+	background-color: #eff6ff;
+	color: #1d4ed8;
+	border-radius: 999px;
+	font-size: 0.75rem;
+	font-weight: 500;
+}
+
+.card__footer {
+	padding: var(--space-md) var(--space-lg);
+	border-top: 1px solid var(--color-border);
+}
+
+.card--active {
+	border-color: var(--color-primary);
+	box-shadow: 0 0 0 3px var(--color-primary) / 20%;
+}
+/* ============================================
+   PAGINA FOOTER
+   ============================================ */
+.page-footer {
+	background-color: var(--color-surface);
+	border-top: 1px solid var(--color-border);
+	padding: var(--space-lg) var(--space-xl);
+	text-align: center;
+	color: var(--color-text-muted);
+	font-size: 0.875rem;
+}
+
+/* Donkere modus */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-text: #f0f0f0;
+		--color-text-muted: #9ca3af;
+		--color-background: #0f172a;
+		--color-surface: #1e293b;
+		--color-border: #334155;
+	}
+}
+
+/* Verminderde animatie - A11y */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+/* ============================================
+   ANIMATIES
+   ============================================ */
+@keyframes fade-in-up {
+	from {
+		opacity: 0;
+		transform: translateY(24px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Hero content verschijnt bij laden */
+.hero-content {
+	animation: fade-in-up 0.6s ease-out both;
+}
+
+/* Kaarten verschijnen na elkaar */
+.card {
+	animation: fade-in-up 0.5s ease-out backwards;
+}
+
+.card:nth-child(1) {
+	animation-delay: 0.1s;
+}
+.card:nth-child(2) {
+	animation-delay: 0.2s;
+}
+.card:nth-child(3) {
+	animation-delay: 0.3s;
+}
+
+/* Verminderde animatie */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+/* Alle links in de navigatie, hero en footer krijgen dezelfde hover-kleur */
+:is(.nav, .hero, .page-footer) a:hover {
+	color: #000000;
+}
+
+/* Kaart met een featured badge krijgt automatisch een andere stijl */
+.card:has(.card__badge) {
+	border-color: #0070f3;
+	box-shadow: 0 0 0 2px #0070f320;
+}
+
+/* Tags hebben basisstijlen via :where() - makkelijk te overschrijven */
+:where(.card__tag, .tag) {
+	display: inline-block;
+	padding: 0.2rem 0.5rem;
+	border-radius: 4px;
+	font-size: 0.75rem;
+	font-weight: 500;
+}
