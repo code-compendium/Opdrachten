@@ -1,0 +1,50 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--color-primary: #0070f3;
+	--color-primary-dark: #005fd4;
+	--color-text: #1a1a2e;
+	--color-text-muted: #6b7280;
+	--color-background: #f8fafc;
+	--color-surface: #ffffff;
+	--color-border: #e5e7eb;
+
+	--space-sm: 0.5rem;
+	--space-md: 1rem;
+	--space-lg: 1.5rem;
+	--space-xl: clamp(1.5rem, 5vw, 3rem);
+	--space-2xl: clamp(2rem, 8vw, 5rem);
+
+	--border-radius: 8px;
+	--max-width: 1100px;
+	--font-size-h1: clamp(1.75rem, 5vw, 3rem);
+	--font-size-h2: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+body {
+	font-family: system-ui, sans-serif;
+	color: var(--color-text);
+	background-color: var(--color-background);
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+:focus-visible {
+	outline: 3px solid var(--color-primary);
+	outline-offset: 2px;
+}

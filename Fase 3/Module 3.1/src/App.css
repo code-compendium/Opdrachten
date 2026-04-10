@@ -1,0 +1,175 @@
+/* Pagina layout */
+.page {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	min-height: 100dvh;
+}
+
+/* Navigatie */
+.page-header {
+	background-color: var(--color-surface);
+	border-bottom: 1px solid var(--color-border);
+	position: sticky;
+	top: 0;
+	z-index: 100;
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-lg);
+	max-width: var(--max-width);
+	margin: 0 auto;
+	padding: var(--space-md) var(--space-xl);
+}
+
+.nav__logo {
+	font-weight: 700;
+	font-size: 1.1rem;
+	color: var(--color-text);
+	text-decoration: none;
+}
+
+.nav__links {
+	display: flex;
+	align-items: center;
+	gap: var(--space-lg);
+	list-style: none;
+}
+
+.nav__links a {
+	color: var(--color-text-muted);
+	text-decoration: none;
+	font-size: 0.9rem;
+	font-weight: 500;
+	transition: color 0.2s ease;
+}
+
+.nav__links a:hover {
+	color: var(--color-text);
+}
+
+/* Knoppen */
+.btn {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.5rem 1.25rem;
+	background-color: var(--color-primary);
+	color: white;
+	text-decoration: none;
+	border-radius: var(--border-radius);
+	font-size: 0.9rem;
+	font-weight: 600;
+	transition: background-color 0.2s ease;
+	white-space: nowrap;
+}
+
+.btn:hover {
+	background-color: var(--color-primary-dark);
+}
+
+.btn--sm {
+	padding: 0.35rem 0.85rem;
+	font-size: 0.8rem;
+}
+
+/* Projecten sectie */
+.page-main {
+	background-color: var(--color-background);
+}
+
+.projects {
+	padding: var(--space-2xl) var(--space-xl);
+	max-width: var(--max-width);
+	margin: 0 auto;
+}
+
+.projects h2 {
+	font-size: var(--font-size-h2);
+	margin-bottom: var(--space-xl);
+}
+
+/* Kaartenraster */
+.card-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+	gap: var(--space-lg);
+}
+
+/* Kaart */
+.card {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--color-surface);
+	border: 1px solid var(--color-border);
+	border-radius: 12px;
+	overflow: hidden;
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease;
+}
+
+.card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card__image {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2.5rem;
+	height: 120px;
+	background-color: var(--color-background);
+}
+
+.card__body {
+	flex: 1;
+	padding: var(--space-lg);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+}
+
+.card__title {
+	font-size: 1rem;
+	font-weight: 700;
+}
+
+.card__description {
+	font-size: 0.875rem;
+	color: var(--color-text-muted);
+	flex: 1;
+}
+
+.card__tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	margin-top: var(--space-sm);
+}
+
+.card__tag {
+	padding: 0.2rem 0.6rem;
+	background-color: #eff6ff;
+	color: #1d4ed8;
+	border-radius: 999px;
+	font-size: 0.75rem;
+	font-weight: 500;
+}
+
+.card__footer {
+	padding: var(--space-md) var(--space-lg);
+	border-top: 1px solid var(--color-border);
+}
+
+/* Pagina footer */
+.page-footer {
+	background-color: var(--color-surface);
+	border-top: 1px solid var(--color-border);
+	padding: var(--space-lg) var(--space-xl);
+	text-align: center;
+	color: var(--color-text-muted);
+	font-size: 0.875rem;
+}
