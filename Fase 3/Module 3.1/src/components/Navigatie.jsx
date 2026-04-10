@@ -1,9 +1,9 @@
-function Navigatie() {
+function Navigatie({ naam }) {
 	return (
 		<header className="page-header">
 			<nav className="nav">
 				<a href="/" className="nav__logo">
-					MyPortfolio
+					{naam || "MyPortfolio"}
 				</a>
 				<ul className="nav__links">
 					<li>
