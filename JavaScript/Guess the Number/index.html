@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Guess The Number</title>
+		<link rel="stylesheet" href="reset.css" />
+		<link rel="stylesheet" href="style.css" />
+		<script defer src="script.js"></script>
+	</head>
+	<body>
+		<main class="container">
+			<h1>Guess the Number!</h1>
+			<p>Ik heb een getal in gedachten tussen 1 en 20. Kun jij het raden?</p>
+
+			<!-- Hier komt onze input en knop -->
+			<label for="guessInput">Raad het getal!</label>
+			<div class="input-section">
+				<input
+					aria-label="Raad het getal!"
+					name="guessInput"
+					type="text"
+					inputmode="numeric"
+					id="guessInput"
+					maxlength="2"
+					placeholder="Voer een getal in..."
+					required
+				/>
+			</div>
+			<div class="button-container" role="group" aria-label="Acties">
+				<button id="guessButton" aria-label="Raad het getal" title="Raad">Raad</button>
+				<button id="resetButton" disabled aria-label="Speel opnieuw" title="Opnieuw">
+					Opnieuw
+				</button>
+			</div>
+
+			<!-- Hier tonen we berichten aan de speler -->
+			<p id="message"></p>
+			<p id="attempts">Aantal pogingen: 0</p>
+		</main>
+	</body>
+</html>

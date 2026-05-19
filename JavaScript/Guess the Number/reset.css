@@ -1,0 +1,51 @@
+/* ===========================
+   MODERNE CSS RESET
+   Gebruik dit als startpunt
+   voor elk nieuw project.
+   =========================== */
+
+/* 1. Box model voor alle elementen consistent maken */
+*,
+*::before,
+*::after {
+	box-sizing: border-box; /* De 'beveiliging' van je breedtes */
+}
+/* 2. Marges en padding weghalen */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* 3. Tekstrendering verbeteren */
+body {
+	-webkit-font-smoothing: antialiased;
+	line-height: 1.5;
+}
+
+/* 4. Media-elementen responsief maken */
+img,
+video,
+svg,
+canvas {
+	display: block; /* Verwijdert ongewenste ruimte onder afbeeldingen */
+	max-width: 100%; /* Afbeeldingen nooit breder dan hun container */
+}
+
+/* 5. Formulier-elementen erven het lettertype van de pagina */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* 6. Tekst-overflow voorkomen bij lange woorden */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
