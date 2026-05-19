@@ -11,9 +11,9 @@ body {
 	margin: 0;
 }
 
+/* clamp() is een CSS functie die ervoor zorgt dat de breedte van de container tussen de 20rem en 50rem ligt, afhankelijk van de schermgrootte */
 .container {
-	width: clamp(20rem, 75%, 50rem);
-	/* max-width: 25rem; */
+	width: clamp(20rem, 50%, 50rem);
 	padding: 2rem;
 	border-radius: 20px;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -30,6 +30,9 @@ input {
 	field-sizing: content;
 }
 
+/* CSS Grid is een lay-out systeem voor webpagina's. Met grid-template-columns maken we kolommen aan. In dit geval maken we 3 kolommen aan. 
+De eerste en derde kolom zijn 1fr (fraction) breed, wat betekent dat ze even breed zijn en de resterende ruimte vullen. 
+De middelste kolom is auto breed, wat betekent dat hij breed genoeg is om de inhoud te bevatten. */
 .button-container {
 	display: grid;
 	grid-template-columns: 1fr auto 1fr;
@@ -38,6 +41,9 @@ input {
 	width: 100%;
 }
 
+/* We gebruiken een CSS pseudo-element om een virtuele kolom links van de Raad-knop te maken. 
+Deze kolom is flexibel (1fr), net als de kolom rechts. Hierdoor wordt de Raad-knop altijd perfect in het midden gehouden, 
+ongeacht de breedte van de 'Opnieuw'-knop. */
 .button-container::before {
 	content: "";
 	display: block;
@@ -55,6 +61,7 @@ button {
 	transition: background-color 0.25s ease-in-out;
 }
 
+/* Met color-mix(in srgb, ...) maken we de knop donkerder bij hover gebaseerd op de variabele --button-color */
 button:hover {
 	background-color: color-mix(in srgb, var(--button-color) 50%, rgba(0, 0, 0, 0.75));
 }
@@ -82,6 +89,7 @@ button:focus {
 	visibility: hidden;
 }
 
+/* We reserveren 1.5 regel tekst in het #message element, zodat de lay-out van de pagina niet verandert */
 #message {
 	min-height: 1.5em;
 	margin: 0.5rem 0;

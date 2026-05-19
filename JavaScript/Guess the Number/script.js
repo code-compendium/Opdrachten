@@ -30,7 +30,7 @@ const handleGuess = () => {
 		messageText.textContent = `Let op: Kies een getal tussen de 1 en 20! Jouw gok: ${userGuess}`;
 		messageText.style.color = "orange";
 		guessInput.value = "";
-		return; // Stop de functie direct
+		return;
 	}
 
 	// Pogingen ophogen en tonen
@@ -44,7 +44,7 @@ const handleGuess = () => {
 		resetButton.disabled = false;
 
 		// Wacht 100ms zodat de browser de CSS-transitie kan starten en de knop focusbaar maakt
-		setTimeout(function () {
+		setTimeout(() => {
 			resetButton.focus();
 		}, 100);
 	} else if (userGuess > randomNumber) {
