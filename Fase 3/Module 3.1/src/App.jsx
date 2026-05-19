@@ -1,6 +1,8 @@
 import Navigatie from "./components/Navigatie";
 import HeroSectie from "./components/HeroSectie";
 import ProjectenSectie from "./components/ProjectenSectie";
+// import GebruikersLijst from "./components/GebruikersLijst";
+// import WeerBericht from "./components/WeerBericht";
 import "./App.css";
 
 const projecten = [
@@ -35,6 +37,7 @@ const profiel = {
 function App() {
 	return (
 		<div className="page">
+			{/* <WeerBericht /> */}
 			<Navigatie naam={profiel.naam} />
 			<main className="page-main">
 				<HeroSectie profiel={profiel} aantalProjecten={projecten.length} />
